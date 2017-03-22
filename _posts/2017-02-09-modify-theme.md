@@ -2,7 +2,7 @@
 layout: post
 title:  "Modify theme minima!"
 date:   2017-02-09 19:01:00 -0800
-categories: jekyll update
+categories: jekyll
 ---
 First of all locate minima theme.
 {% highlight bash %}
@@ -34,13 +34,18 @@ First I copied <head> code from index.html to _include/head.html:
 Second I need to change the url using liquid engine:
 Relative URL
 Prepend the baseurl value to the input. Useful if your site is hosted at a subpath rather than the root of the domain.
-{{ "/assets/style.css" | relative_url }}
+
+{% highlight liquid %}
+{% raw %}{{ "/assets/style.css" | relative_url }}{% endraw %}
 /my-baseurl/assets/style.css
+{% endhighlight %}
+
 Absolute URL
 Prepend the url and baseurl value to the input.
-{{ "/assets/style.css" | absolute_url }}
+{% highlight liquid %}
+{% raw %}{{ "/assets/style.css" | absolute_url }}{% endraw %}
 http://example.com/my-baseurl/assets/style.css
-
+{% endhighlight %}
 
 [jekyll-docs]: http://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
